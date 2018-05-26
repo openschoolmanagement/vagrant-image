@@ -3,12 +3,7 @@
 
 Vagrant.configure("2") do |config|
 
-  # specify proxy settings using plugin
-  if Vagrant.has_plugin?("vagrant-proxyconf")
-    config.proxy.http     = "http://proxy.wdf.sap.corp:8080/"
-    config.proxy.https    = "http://proxy.wdf.sap.corp:8080/"
-    config.proxy.no_proxy = "localhost,127.0.0.1,/var/run/docker.sock,.sap.corp"
-  end
+
 
   config.vm.box = "ubuntu/trusty64"
 	config.vm.hostname = "backing-local"
@@ -54,7 +49,7 @@ run: "always"
   config.vm.provision :shell, path: "./scripts/setup-mongodb.sh"
 
   ## Provisioning script - R Programming
-  config.vm.provision :shell, path: "./scripts/setup-r.sh"
+  ## config.vm.provision :shell, path: "./scripts/setup-r.sh"
 
   ## Start Up Script "What shall happen when Vagrant starts"
   config.vm.provision :shell, path: "./scripts/onVagrantUp.sh",

@@ -26,6 +26,9 @@ Vagrant.configure("2") do |config|
   config.vm.network :forwarded_port, guest: 8083, host: 8083
   config.vm.network :forwarded_port, guest: 8088, host: 8088
 
+  ##Port forwarding - MySQL
+  config.vm.network :forwarded_port, guest: 3306, host: 3306
+
   ## Port forwarding - MongoDB
   config.vm.network :forwarded_port, host: 27017, guest: 27017
 
@@ -41,6 +44,9 @@ run: "always"
 
   ## Provisioning script - Redis
   config.vm.provision :shell, path: "./scripts/setup-redis.sh"
+
+  ## Provisioning script - MySQL
+  config.vm.provision :shell, path: "./scripts/setup-mysql.sh"
 
   ## Provisioning script - InfluxDB
   config.vm.provision :shell, path: "./scripts/setup-influxdb.sh"

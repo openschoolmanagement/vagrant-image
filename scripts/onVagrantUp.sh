@@ -44,7 +44,7 @@ fi
 #Start MySql
 if (( $(ps -ef | grep -v grep | grep mysql | wc -l) > 0 ))
 then
-echo "rabbitmq is running!!!"
+echo "mysql is running!!!"
 else
   sudo service mysql start
 fi

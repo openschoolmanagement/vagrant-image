@@ -6,9 +6,9 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.box = "ubuntu/trusty64"
-	config.vm.hostname = "backing-local"
+	config.vm.hostname = "osm-backing-local"
 	config.vm.provider :virtualbox do |v|
-		v.name = "backing-local"
+		v.name = "osm-backing-local"
 	end
 
   ## Port forwarding - RabbitMQ
